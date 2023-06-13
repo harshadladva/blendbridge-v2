@@ -57,7 +57,9 @@
       <div class="flex justify-center">
         <div class="h-screen justify-center w-4/5 flex flex-col items-center">
           <h1 class="text-4xl">Welcome Back</h1>
-          <h1 class="text-xl mb-6 mt-4 text-center">In your professional community. Please enter your details.</h1>
+          <h1 class="text-xl mb-6 mt-4 text-center">
+            In your professional community. Please enter your details.
+          </h1>
           <form class="w-4/6 mt-4" [formGroup]="loginForm">
             <div class="flex w-full flex-col gap-2">
               <label htmlFor="email" class="text-sm"
@@ -122,9 +124,15 @@
       </div>
     </div>
     <div
-      class="bg-gray-100 h-screen !xs:hidden !sm:hidden md:block lg:block xl:block xs:w-0 sm:w-0 md:w-full lg:w-6/12 xl:6/12"
+      class="bg-gray-100 align-center justify-center flex-col h-screen xs:hidden sm:hidden md:flex lg:flex xl:flex md:w-full lg:w-6/12 xl:6/12"
     >
-      <div class="">2</div>
+      <div class="p-5">
+        <img
+          src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="h-full w-full"
+          alt="demo-image"
+        />
+      </div>
     </div>
   </div>
 </div>
