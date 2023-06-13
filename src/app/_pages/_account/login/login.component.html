@@ -1,72 +1,130 @@
-<section class="h-screen">
-  <div class="h-full">
-    <!-- Left column container with background-->
-    <div
-      class="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between"
+<!-- <form class="mr-16" [formGroup]="loginForm">
+  <span class="p-float-label">
+    <input
+      class="w-full"
+      pInputText
+      id="email"
+      inputStyleClass="!p-3"
+      formControlName="email"
+    />
+    <label htmlFor="email">Email</label>
+  </span>
+  <div
+    class="mt-2 text-sm text-red-500"
+    *ngIf="email?.touched && email?.errors?.['error']"
+  >
+    <p>{{ email.errors?.['message'] || '' }}</p>
+  </div>
+
+  <span class="!mt-8 p-float-label">
+    <p-password
+      styleClass="w-full"
+      inputStyleClass="w-full"
+      formControlName="password"
+      [toggleMask]="true"
+      [feedback]="false"
+    ></p-password>
+    <label for="password">Password</label>
+  </span>
+
+  <div
+    class="mt-2 text-sm text-red-500"
+    *ngIf="password?.touched && password?.errors?.['error']"
+  >
+    <p>{{ password.errors?.['message'] || '' }}</p>
+  </div>
+
+  <div class="mt-2">
+    <a
+      class="text-blue-500 font-sm cursor-pointer"
+      [routerLink]="'/register'"
+      >Register!!</a
     >
-      <div
-        class="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12"
-      >
-        <img
-          src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-          class="w-full p-10"
-          alt="Sample image"
-        />
-      </div>
+  </div>
 
-      <div class="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
-        <div class="my-8 text-center">
-          <h1 class="text-6xl text-black opacity-60 font-light">
-            Welcome to your <br />
-            professional <br />
-            community
-          </h1>
+  <div class="text-center mt-5">
+    <p-button
+      [disabled]="loginForm.invalid"
+      (onClick)="onLogin()"
+      label="Submit"
+    ></p-button>
+  </div>
+</form> -->
+
+<div class="login">
+  <div class="h-full w-full flex">
+    <div class="xs:w-full sm:w-full md:w-full lg:w-6/12 xl:6/12">
+      <div class="flex justify-center">
+        <div class="h-screen justify-center w-4/5 flex flex-col items-center">
+          <h1 class="text-4xl">Welcome Back</h1>
+          <h1 class="text-xl mb-6 mt-4 text-center">In your professional community. Please enter your details.</h1>
+          <form class="w-4/6 mt-4" [formGroup]="loginForm">
+            <div class="flex w-full flex-col gap-2">
+              <label htmlFor="email" class="text-sm"
+                >Email<span class="text-red-500">*</span></label
+              >
+              <input
+                pInputText
+                id="email"
+                class="blendbridge-input"
+                placeholder="Enter your email"
+                aria-describedby="email"
+                formControlName="email"
+              />
+              <small
+                id="email"
+                class="text-red-500"
+                *ngIf="email?.touched && email?.errors?.['error']"
+                >{{ email.errors?.['message'] || '' }}</small
+              >
+            </div>
+            <div class="flex my-4 flex-col gap-2">
+              <label htmlFor="password" class="text-sm"
+                >Password<span class="text-red-500">*</span></label
+              >
+
+              <p-password
+                styleClass="w-full"
+                inputStyleClass="blendbridge-input"
+                formControlName="password"
+                [toggleMask]="true"
+                [feedback]="false"
+              ></p-password>
+              <small
+                id="password"
+                class="text-red-500"
+                *ngIf="password?.touched && password?.errors?.['error']"
+              >
+                {{ password.errors?.['message'] || '' }}
+              </small>
+            </div>
+
+            <div class="mt-2 text-center text-gray-500">
+              Don't have account?
+              <a
+                class="text-blue-500 font-sm cursor-pointer"
+                [routerLink]="'/register'"
+              >
+                Register</a
+              >
+            </div>
+
+            <div class="text-center mt-5">
+              <p-button
+                styleClass="!w-4/6 mx-auto "
+                [disabled]="loginForm.invalid"
+                (onClick)="onLogin()"
+                label="Submit"
+              ></p-button>
+            </div>
+          </form>
         </div>
-        <form class="mr-16" [formGroup]="loginForm">
-          <span class="p-float-label">
-            <input
-              class="w-full"
-              pInputText
-              id="email"
-              inputStyleClass="!p-3"
-              formControlName="email"
-            />
-            <label htmlFor="email">Email</label>
-          </span>
-          <div
-            class="mt-2 text-sm text-red-500"
-            *ngIf="email?.touched && email?.errors?.['error']"
-          >
-            <p>{{ email.errors?.['message'] || '' }}</p>
-          </div>
-
-          <span class="!mt-8 p-float-label">
-            <p-password
-              styleClass="w-full"
-              inputStyleClass="w-full"
-              formControlName="password"
-              [toggleMask]="true"
-              [feedback]="false"
-            ></p-password>
-            <label for="password">Password</label>
-          </span>
-
-          <div
-            class="mt-2 text-sm text-red-500"
-            *ngIf="password?.touched && password?.errors?.['error']"
-          >
-            <p>{{ password.errors?.['message'] || '' }}</p>
-          </div>
-
-          <div class="text-center mt-5">
-            <p-button
-              [disabled]="loginForm.invalid"
-              (onClick)="onLogin()"
-              label="Submit"
-            ></p-button>
-          </div>
-        </form>
       </div>
     </div>
+    <div
+      class="bg-gray-100 h-screen !xs:hidden !sm:hidden md:block lg:block xl:block xs:w-0 sm:w-0 md:w-full lg:w-6/12 xl:6/12"
+    >
+      <div class="">2</div>
+    </div>
   </div>
-</section>
+</div>
