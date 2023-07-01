@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
-import { BaseComponent } from '../../../_base/_base.component';
 import {
   UntypedFormBuilder,
   UntypedFormControl,
   UntypedFormGroup,
 } from '@angular/forms';
 import {
+  validateConfirmPassword,
   validateEmail,
   validatePassword,
   validateRequired,
 } from 'src/app/_validator/_validators';
+import { BaseComponent } from '../../../_base/_base.component';
 
 export enum YesNoMaybe {
   YES = 'yes',
@@ -29,19 +30,21 @@ export class RegisterComponent extends BaseComponent {
     {
       key: 0,
       id: YesNoMaybe.YES,
-      value: 'Yes'
+      value: 'Yes',
     },
     {
       key: 1,
       id: YesNoMaybe.NO,
-      value: 'No'
+      value: 'No',
     },
     {
       key: 2,
       id: YesNoMaybe.MAYBE,
-      value: 'Maybe'
-    }
-  ]
+      value: 'Maybe',
+    },
+  ];
+
+  rateYourEfforts: { key: number; id: number; value: number }[] = [];
 
   constructor(private _formBuilder: UntypedFormBuilder) {
     super();
@@ -49,22 +52,36 @@ export class RegisterComponent extends BaseComponent {
 
   protected override onInit() {
     this._initializeForm();
+    this.rateYourEfforts = this.getRateData();
     super.onInit();
   }
 
+  getRateData() {
+    return [1, 2, 3, 4, 5].map((item, i) => ({
+      key: item,
+      id: item,
+      value: item,
+    }));
+  }
+
   _initializeForm() {
-    this.registerForm = this._formBuilder.group({
-      email: [, validateEmail()],
-      password: [, validatePassword()],
-      confirmPassword: [,],
-      currentCompany: [, validateRequired('Current Company')],
-      currentJobProfile: [, validateRequired('Current Job Profile')],
-      nextCompany: [, validateRequired('Dream or Next Company')],
-      dreamJobProfile: [, validateRequired('Dream Job Profile')],
-      feelAchivingYourDreamJobOrNot: [YesNoMaybe.YES],
-      whatNotWorkingInYourFavour: [],
-      rateCompany: [1],
-    });
+    this.registerForm = this._formBuilder.group(
+      {
+        email: [, validateEmail()],
+        password: [, validatePassword()],
+        confirmPassword: [,],
+        currentCompany: [, validateRequired('Current Company')],
+        currentJobProfile: [, validateRequired('Current Job Profile')],
+        nextCompany: [, validateRequired('Dream or Next Company')],
+        dreamJobProfile: [, validateRequired('Dream Job Profile')],
+        feelAchivingYourDreamJobOrNot: [YesNoMaybe.YES],
+        whatNotWorkingInYourFavour: [],
+        rateCompany: [5],
+      },
+      {
+        validator: validateConfirmPassword('password', 'confirmPassword'),
+      }
+    );
   }
 
   get email(): UntypedFormControl {

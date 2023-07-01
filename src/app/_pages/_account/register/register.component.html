@@ -1,289 +1,291 @@
-<section class="h-screen">
-  <div class="h-full">
-    <!-- Left column container with background-->
+<div class="register">
+  <div class="h-auto w-full flex">
+    <div class="xs:w-full sm:w-full md:w-full lg:w-6/12 xl:6/12">
+      <div class="flex justify-center">
+        <div class="h-full justify-center w-4/5 flex flex-col items-center">
+          <h1 class="text-4xl mt-6">Sign Up</h1>
+          <h1 class="text-xl mb-6 mt-4 text-center">
+            Please add required details for start with your professional
+            community.
+          </h1>
+          <div class="mb-12 md:mb-0 mt-10">
+            <form
+              class="sm:m-0 xs:mr-0 md:mr-16 lg:mr-16 xl:mr-16"
+              [formGroup]="registerForm"
+            >
+              <div class="my-2">
+                <ng-container>
+                  <label htmlFor="email" class="text-sm"
+                    >Email<span class="text-red-500 text-sm">*</span></label
+                  >
+                  <input
+                    class="w-full blendbridge-input"
+                    pInputText
+                    placeholder="Enter your email address*"
+                    id="email"
+                    inputStyleClass="!p-3"
+                    formControlName="email"
+                  />
+                  <div
+                    class="mt-2 text-sm text-red-500"
+                    *ngIf="email?.touched && email?.errors?.['error']"
+                  >
+                    <p>{{ email.errors?.['message'] || '' }}</p>
+                  </div>
+                </ng-container>
+              </div>
+              <div class="my-2">
+                <ng-container>
+                  <label htmlFor="currentCompany" class="text-sm"
+                    >Current Company<span class="text-red-500 text-sm"
+                      >*</span
+                    ></label
+                  >
+                  <input
+                    class="w-full blendbridge-input"
+                    placeholder="Enter your current company*"
+                    pInputText
+                    id="currentCompany"
+                    inputStyleClass="!p-3"
+                    formControlName="currentCompany"
+                  />
+                  <div
+                    class="mt-2 text-sm text-red-500"
+                    *ngIf="currentCompany?.touched && currentCompany?.errors?.['error']"
+                  >
+                    <p>{{ currentCompany.errors?.['message'] || '' }}</p>
+                  </div>
+                </ng-container>
+              </div>
+
+              <div
+                class="my-2 xs:block sm:block md:flex lg:flex xl:flex gap-2 w-full"
+              >
+                <div class="xs:w-full sm:w-full md:w-6/12 lg:w-6/12 xl:w-6/12">
+                  <label for="password" class="text-sm"
+                    >Password<span class="text-red-500 text-sm">*</span></label
+                  >
+                  <p-password
+                    styleClass="w-full"
+                    inputStyleClass="w-full blendbridge-input"
+                    formControlName="password"
+                    placeholder="Enter your password*"
+                    [toggleMask]="true"
+                    [feedback]="false"
+                  ></p-password>
+                  <div
+                    class="mt-2 text-sm text-red-500"
+                    *ngIf="password?.touched && password?.errors?.['error']"
+                  >
+                    <p>{{ password.errors?.['message'] || '' }}</p>
+                  </div>
+                </div>
+                <div class="xs:w-full sm:w-full md:w-6/12 lg:w-6/12 xl:w-6/12">
+                  <label for="confirmPassword" class="text-sm"
+                    >Confirm Password<span class="text-red-500 text-sm"
+                      >*</span
+                    ></label
+                  >
+
+                  <p-password
+                    styleClass="w-full"
+                    inputStyleClass="w-full blendbridge-input"
+                    formControlName="confirmPassword"
+                    placeholder="Verify your password*"
+                    [toggleMask]="true"
+                    [feedback]="false"
+                  ></p-password>
+
+                  <div
+                    class="mt-2 text-sm text-red-500"
+                    *ngIf="confirmPassword?.touched && confirmPassword?.errors?.['error']"
+                  >
+                    <p>{{ confirmPassword.errors?.['message'] || '' }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="my-2">
+                <ng-container>
+                  <ng-container>
+                    <label htmlFor="currentJobProfile" class="text-sm"
+                      >Current Job Profile<span class="text-red-500 text-sm"
+                        >*</span
+                      ></label
+                    >
+                    <input
+                      class="w-full"
+                      pInputText
+                      id="currentJobProfile"
+                      class="blendbridge-input"
+                      placeholder="Current Job Profile*"
+                      inputStyleClass="!p-3"
+                      formControlName="currentJobProfile"
+                    />
+                  </ng-container>
+                  <p class="text-xs">
+                    Ex. Operations manager/ Data Analytics/ Consultancy/ Sales
+                    Manager
+                  </p>
+                  <div
+                    class="mt-2 text-sm text-red-500"
+                    *ngIf="currentJobProfile?.touched && currentJobProfile?.errors?.['error']"
+                  >
+                    <p>{{ currentJobProfile.errors?.['message'] || '' }}</p>
+                  </div>
+                </ng-container>
+              </div>
+              <div class="my-2">
+                <ng-container>
+                  <label htmlFor="nextCompany" class="text-sm"
+                    >Dream Or Next Company<span class="text-red-500 text-sm"
+                      >*</span
+                    ></label
+                  >
+                  <input
+                    class="w-full"
+                    pInputText
+                    id="nextCompany"
+                    placeholder="Dream or Next Company*"
+                    class="blendbridge-input"
+                    inputStyleClass="!p-3"
+                    formControlName="nextCompany"
+                  />
+                  <div
+                    class="mt-2 text-sm text-red-500"
+                    *ngIf="nextCompany?.touched && nextCompany?.errors?.['error']"
+                  >
+                    <p>{{ nextCompany.errors?.['message'] || '' }}</p>
+                  </div>
+                </ng-container>
+              </div>
+
+              <div class="my-2">
+                <ng-container>
+                  <label htmlFor="dreamJobProfile" class="text-sm"
+                    >Dream Job Profile<span class="text-red-500 text-sm"
+                      >*</span
+                    ></label
+                  >
+                  <input
+                    class="w-full"
+                    pInputText
+                    placeholder="Dream Job Profile*"
+                    id="dreamJobProfile"
+                    class="blendbridge-input"
+                    inputStyleClass="!p-3"
+                    formControlName="dreamJobProfile"
+                  />
+                  <div
+                    class="mt-2 text-sm text-red-500"
+                    *ngIf="dreamJobProfile?.touched && dreamJobProfile?.errors?.['error']"
+                  >
+                    <p>{{ dreamJobProfile.errors?.['message'] || '' }}</p>
+                  </div>
+                </ng-container>
+              </div>
+              <div class="my-2">
+                <div>
+                  <label htmlFor="currentCompany" class="text-sm"
+                    >Do you feel currently you are on course to achiving your
+                    dream job profile?<span class="text-red-500 text-sm"
+                      >*</span
+                    ></label
+                  >
+
+                  <div class="my-3" *ngFor="let item of archivingJobProfiles">
+                    <p-radioButton
+                      [value]="item.id"
+                      formControlName="feelAchivingYourDreamJobOrNot"
+                      [inputId]="item.id"
+                    ></p-radioButton>
+                    <label
+                      for="{{ item.id }}"
+                      class="ml-2 cursor-pointer"
+                      [innerHTML]="item.value"
+                    >
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="my-2"
+                *ngIf="
+                  [yesNoMaybeEnum.NO, yesNoMaybeEnum.MAYBE].includes(
+                    feelAchivingYourDreamJobOrNot.value
+                  )
+                "
+              >
+                <div>
+                  <label htmlFor="currentCompany" class="text-sm"
+                    >If you selected No / Maybe to above question, what you
+                    believe is not working in your favour?
+                  </label>
+
+                  <div class="mt-3">
+                    <textarea
+                      class="w-full"
+                      formControlName="whatNotWorkingInYourFavour"
+                      pInputTextarea
+                      [autoResize]="true"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="rateYourEfforts" class="text-sm"
+                  >If given an opportunity , how likely are you to refer someone
+                  in your company. Rate your efforts?</label
+                >
+                <div class="flex justify-between">
+                  <div class="my-3 flex" *ngFor="let rate of rateYourEfforts">
+                    <p-radioButton
+                      [value]="rate.id"
+                      formControlName="rateCompany"
+                      [inputId]="rate.id.toString()"
+                    ></p-radioButton>
+                    <label
+                      for="{{ rate.id.toString() }}"
+                      class="ml-2 cursor-pointer"
+                      [innerHTML]="rate.value"
+                    >
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-2 text-center">
+                <a
+                  class="text-blue-500 font-sm cursor-pointer"
+                  [routerLink]="'/login'"
+                  >Already have account!!</a
+                >
+              </div>
+
+              <div class="text-center my-6">
+                <p-button
+                  [disabled]="registerForm.invalid"
+                  (onClick)="onRegister()"
+                  label="Submit"
+                ></p-button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <div
-      class="g-6 flex h-full flex-wrap items-center xs:justify-center sm:justify-center lg:justify-between"
+      class="bg-gray-100 align-center justify-center flex-col h-auto xs:hidden sm:hidden md:flex lg:flex xl:flex md:w-full lg:w-6/12 xl:6/12"
     >
-      <div
-        class="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12"
-      >
+      <div class="p-5">
         <img
           src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-          class="w-full p-10"
-          alt="Sample image"
+          class="h-auto w-full"
+          alt="demo-image"
         />
-      </div>
-
-      <div class="mb-12 md:mb-0 mt-10 md:w-8/12 lg:w-5/12 xl:w-5/12">
-        <form
-          class="sm:m-0 xs:mr-0 md:mr-16 lg:mr-16 xl:mr-16"
-          [formGroup]="registerForm"
-        >
-          <div class="my-2">
-            <div>
-              <span class="p-float-label">
-                <input
-                  class="w-full"
-                  pInputText
-                  id="email"
-                  inputStyleClass="!p-3"
-                  formControlName="email"
-                />
-                <label htmlFor="email"
-                  >Email<span class="text-red-500 text-sm">*</span></label
-                >
-              </span>
-              <div
-                class="mt-2 text-sm text-red-500"
-                *ngIf="email?.touched && email?.errors?.['error']"
-              >
-                <p>{{ email.errors?.['message'] || '' }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="my-2">
-            <div>
-              <span class="p-float-label">
-                <input
-                  class="w-full"
-                  pInputText
-                  id="currentCompany"
-                  inputStyleClass="!p-3"
-                  formControlName="currentCompany"
-                />
-                <label htmlFor="currentCompany"
-                  >Current Company<span class="text-red-500 text-sm"
-                    >*</span
-                  ></label
-                >
-              </span>
-              <div
-                class="mt-2 text-sm text-red-500"
-                *ngIf="currentCompany?.touched && currentCompany?.errors?.['error']"
-              >
-                <p>{{ currentCompany.errors?.['message'] || '' }}</p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="my-2 xs:block sm:block md:flex lg:flex xl:flex gap-2 w-full"
-          >
-            <div class="xs:w-full sm:w-full md:w-6/12 lg:w-6/12 xl:w-6/12">
-              <span class="p-float-label">
-                <p-password
-                  styleClass="w-full"
-                  inputStyleClass="w-full"
-                  formControlName="password"
-                  [toggleMask]="true"
-                  [feedback]="false"
-                ></p-password>
-                <label for="password">Password</label>
-              </span>
-
-              <div
-                class="mt-2 text-sm text-red-500"
-                *ngIf="password?.touched && password?.errors?.['error']"
-              >
-                <p>{{ password.errors?.['message'] || '' }}</p>
-              </div>
-            </div>
-            <div class="xs:w-full sm:w-full md:w-6/12 lg:w-6/12 xl:w-6/12">
-              <span class="p-float-label">
-                <p-password
-                  styleClass="w-full"
-                  inputStyleClass="w-full"
-                  formControlName="confirmPassword"
-                  [toggleMask]="true"
-                  [feedback]="false"
-                ></p-password>
-                <label for="confirmPassword">Confirm Password</label>
-              </span>
-
-              <div
-                class="mt-2 text-sm text-red-500"
-                *ngIf="confirmPassword?.touched && confirmPassword?.errors?.['error']"
-              >
-                <p>{{ confirmPassword.errors?.['message'] || '' }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="my-2">
-            <div>
-              <span class="p-float-label">
-                <input
-                  class="w-full"
-                  pInputText
-                  id="currentCompany"
-                  inputStyleClass="!p-3"
-                  formControlName="currentCompany"
-                />
-                <label htmlFor="currentCompany"
-                  >Current Company<span class="text-red-500 text-sm"
-                    >*</span
-                  ></label
-                >
-              </span>
-              <div
-                class="mt-2 text-sm text-red-500"
-                *ngIf="currentCompany?.touched && currentCompany?.errors?.['error']"
-              >
-                <p>{{ currentCompany.errors?.['message'] || '' }}</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="my-2">
-            <div>
-              <span class="p-float-label">
-                <input
-                  class="w-full"
-                  pInputText
-                  id="currentJobProfile"
-                  inputStyleClass="!p-3"
-                  formControlName="currentJobProfile"
-                />
-                <label htmlFor="currentJobProfile"
-                  >Current Job Profile<span class="text-red-500 text-sm"
-                    >*</span
-                  ></label
-                >
-              </span>
-              <p class="text-xs">
-                Ex. Operations manager/ Data Analytics/ Consultancy/ Sales
-                Manager
-              </p>
-              <div
-                class="mt-2 text-sm text-red-500"
-                *ngIf="currentJobProfile?.touched && currentJobProfile?.errors?.['error']"
-              >
-                <p>{{ currentJobProfile.errors?.['message'] || '' }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="my-2">
-            <div>
-              <span class="p-float-label">
-                <input
-                  class="w-full"
-                  pInputText
-                  id="nextCompany"
-                  inputStyleClass="!p-3"
-                  formControlName="nextCompany"
-                />
-                <label htmlFor="nextCompany"
-                  >Dream Or Next Company<span class="text-red-500 text-sm"
-                    >*</span
-                  ></label
-                >
-              </span>
-              <div
-                class="mt-2 text-sm text-red-500"
-                *ngIf="nextCompany?.touched && nextCompany?.errors?.['error']"
-              >
-                <p>{{ nextCompany.errors?.['message'] || '' }}</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="my-2">
-            <div>
-              <span class="p-float-label">
-                <input
-                  class="w-full"
-                  pInputText
-                  id="dreamJobProfile"
-                  inputStyleClass="!p-3"
-                  formControlName="dreamJobProfile"
-                />
-                <label htmlFor="dreamJobProfile"
-                  >Dream Job Profile<span class="text-red-500 text-sm"
-                    >*</span
-                  ></label
-                >
-              </span>
-              <div
-                class="mt-2 text-sm text-red-500"
-                *ngIf="dreamJobProfile?.touched && dreamJobProfile?.errors?.['error']"
-              >
-                <p>{{ dreamJobProfile.errors?.['message'] || '' }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="my-2">
-            <div>
-              <label htmlFor="currentCompany"
-                >Do you feel currently you are on course to achiving your dream
-                job profile?<span class="text-red-500 text-sm">*</span></label
-              >
-
-              <div class="my-3" *ngFor="let item of archivingJobProfiles">
-                <p-radioButton
-                  [value]="item.id"
-                  formControlName="feelAchivingYourDreamJobOrNot"
-                  [inputId]="item.id"
-                ></p-radioButton>
-                <label
-                  for="{{ item.id }}"
-                  class="ml-2"
-                  [innerHTML]="item.value"
-                >
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="my-2"
-            *ngIf="
-              [yesNoMaybeEnum.NO, yesNoMaybeEnum.MAYBE].includes(
-                feelAchivingYourDreamJobOrNot.value
-              )
-            "
-          >
-            <div>
-              <label htmlFor="currentCompany"
-                >If you selected No / Maybe to above question, what you believe
-                is not working in your favour?
-              </label>
-
-              <div class="mt-3">
-                <textarea
-                  class="w-full"
-                  formControlName="whatNotWorkingInYourFavour"
-                  pInputTextarea
-                  [autoResize]="true"
-                ></textarea>
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="rateCompany"
-                >If you selected No / Maybe to above question, what you believe
-                is not working in your favour?
-              </label>
-
-              <div class="mt-3"></div>
-            </div>
-          </div>
-
-          <div class="mt-2">
-            <a
-              class="text-blue-500 font-sm cursor-pointer"
-              [routerLink]="'/login'"
-              >Already have account!!</a
-            >
-          </div>
-
-          <div class="text-center mt-5">
-            <p-button
-              [disabled]="registerForm.invalid"
-              (onClick)="onRegister()"
-              label="Submit"
-            ></p-button>
-          </div>
-        </form>
       </div>
     </div>
   </div>
-</section>
+</div>

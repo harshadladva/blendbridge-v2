@@ -15,10 +15,18 @@ body {
   font-family:  'Noto Sans', -apple-system, sans-serif;
 }
 
+.p-inputtext {
+  font-family:  'Noto Sans', -apple-system, sans-serif !important;
+}
+
 .blendbridge-input {
   padding: 0.725rem 1rem !important;
   border-radius: 8px !important;
   width: 100%;
+}
+
+.p-icon-wrapper {
+  cursor: pointer !important;
 }
 
 /* width */
