@@ -27,7 +27,12 @@ export class AuthGuard implements CanActivate {
     urlTree.fragment = null;
 
     if (this._authService.isUserAuthenticated()) {
-      const restrictedArray = ['/login', '/forgotpassword', '/resetpassword'];
+      const restrictedArray = [
+        '/login',
+        '/register',
+        '/forgotpassword',
+        '/resetpassword',
+      ];
 
       if (restrictedArray.includes(urlTree.toString())) {
         this.router.navigate(['/']);
