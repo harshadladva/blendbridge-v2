@@ -1,13 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
-import { JobListingComponent } from './job-listing.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { CardModule } from 'primeng/card';
 import { DataViewModule } from 'primeng/dataview';
 import { DropdownModule } from 'primeng/dropdown';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
+import { JobListingComponent } from './job-listing.component';
 
 const routes: Routes = [
   {
@@ -23,8 +22,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     DataViewModule,
+    CardModule,
     DropdownModule,
-    HttpClientModule
+    HttpClientModule,
   ],
 })
 export class JobListingModule {}
